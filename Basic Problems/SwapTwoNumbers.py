@@ -3,7 +3,11 @@ def swap(a, b):
 
 
 if __name__ == "__main__":
-    a, b = 3, 5
-    print(a, b)
-    a, b = swap(a, b)
-    print(a, b)
+    test_sets = [
+        (3, 5),
+        (9, 4),
+        (2, 12)
+    ]
+
+    for a, b in test_sets:
+        print(f"({a}, {b}) => {swap(a, b)}")

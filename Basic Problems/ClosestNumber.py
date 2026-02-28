@@ -32,7 +32,5 @@ if __name__ == "__main__":
         (-15, 10) # -20
     ]
 
-    for set in test_sets:
-        n = set[0]
-        m = set[1]
+    for n, m in test_sets:
         print(f"({n}, {m})", closest_number(n, m))

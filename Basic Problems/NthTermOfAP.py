@@ -11,8 +11,5 @@ if __name__ == "__main__":
         (1, 3, 10)
     ]
 
-    for set in test_sets:
-        a1 = set[0]
-        a2 = set[1]
-        n = set[2]
+    for a1, a2, n in test_sets:
         print(f"a1 {a1} a2 {a2} n {n} = {find_nth_term(a1, a2, n)}")
