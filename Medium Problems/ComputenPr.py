@@ -10,7 +10,12 @@ def npr(n, r):
     if r < 0: return -1
     if r > n: return -1
 
-    return fact(n) / fact(n-r)
+    res = 1
+    for i in range(r):
+        res *= n - i
+
+    # return fact(n) / fact(n-r)
+    return res
 
 if __name__ == "__main__":
     test_nums = [3, 4, 5]
