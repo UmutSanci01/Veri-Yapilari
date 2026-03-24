@@ -1,10 +1,23 @@
-def find_leaders(arr):
+def find_leaders(arr : list):
     leaders = []
-    temp = arr
-    while len(temp) > 0:
-        greater, index = find_greater(temp)
-        leaders.append(greater)
-        temp = temp[index + 1: ]
+    mostRightElement = arr.pop()
+    i = len(arr)
+
+    while i > 0:
+        i -= 1
+        if arr[i] >= mostRightElement:
+            leaders.append(mostRightElement)
+            mostRightElement = arr[i]
+    
+    if leaders[-1] != mostRightElement:
+        leaders.append(mostRightElement)
+    
+    leaders.reverse()
+    # temp = arr
+    # while len(temp) > 0:
+    #     greater, index = find_greater(temp)
+    #     leaders.append(greater)
+    #     temp = temp[index + 1: ]
     return leaders
 
 def find_greater(arr):
