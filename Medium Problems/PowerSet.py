@@ -1,28 +1,19 @@
-def power_set(s, k = 0):
-    subs = []
-    n = len(s)
-    if k < n:
-        subs.append(power_set(s, k + 1))
+def power_set(s : str, yol : str, index = 0, sonuc : list = []):
+    sonuc.append(yol[:])
 
-    if k <= 0:
-        subs.append('')
-        return subs
-
-    # k = 3 n = 4
-    for i in range(0, n):
-        if k + i > n:
-            break
-        subs.append(s[i:k+i])
-
-    return subs    
+    for i in range(index, len(s)):
+        yol += s[i]
+        power_set(s, yol, i+1, sonuc)
+        yol = yol[:-1]
+    
+    return sonuc
 
 
 if __name__ == "__main__":
-    test_string = [
-        "ab", # "", "a", "b", "ab"
-        "abc", # "", "a", "b", "c", "ab", "bc", "ac", "abc"
-        "a" # "", "a"
+    test_sets = [
+        "ab",
+        "abc",
+        "a"
     ]
-    for string in test_string:
-        print(power_set(string))
-        
+    for s in test_sets:
+        print(s, power_set(s, ""))
