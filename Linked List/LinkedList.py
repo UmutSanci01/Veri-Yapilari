@@ -11,23 +11,42 @@ class LinkedList:
 
     def insert(self, node : Node):
         if self.size == 0:
-            head = node
-            tail = head
-            return
-        
-        tail.next = node
-        tail = node
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
+        self.size += 1
     
     def delete(self, node : Node):
+        # liste bos ise
+        if self.head == None:
+            return
+        
+        # silinmesi istenen dugum head ise
+        if self.head == node:
+            self.head = self.head.next # None or Node
+
+            if self.head == None:
+                self.tail = None
+            
+            self.size -= 1
+            return
+
+        # aradan bir eleman silinmek istendiginde
         n : Node = self.head
         while n:
-            if n == node or n.next == node:
-                if node.next:
-                    n.next = node.next
-                else:
-                    n.next = None
+            if n.next == node:
+                # tail dugumunun bir onceki elemanina ulasmak icin takip sart
+                if node == self.tail:
+                    self.tail = n
+
+                n.next = node.next
+
+                self.size -= 1
+                break
             n = n.next
-    
+            
     def show(self):
         n : Node = self.head
         while n:
