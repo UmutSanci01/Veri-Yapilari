@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None
+        self.next : Node = None
 
 class LinkedList:
     def __init__(self):
@@ -18,13 +18,13 @@ class LinkedList:
             self.tail = node
         self.size += 1
     
-    def delete(self, node : Node):
+    def delete(self, data):
         # liste bos ise
         if self.head == None:
             return
         
         # silinmesi istenen dugum head ise
-        if self.head == node:
+        if self.head.data == data:
             self.head = self.head.next # None or Node
 
             if self.head == None:
@@ -36,12 +36,12 @@ class LinkedList:
         # aradan bir eleman silinmek istendiginde
         n : Node = self.head
         while n:
-            if n.next == node:
+            if n.next.data == data:
                 # tail dugumunun bir onceki elemanina ulasmak icin takip sart
-                if node == self.tail:
+                if n.next == self.tail:
                     self.tail = n
-
-                n.next = node.next
+                
+                n.next = n.next.next
 
                 self.size -= 1
                 break
@@ -59,5 +59,6 @@ if __name__ == "__main__":
     linked_list.insert(Node(15))
     linked_list.insert(Node(25))
     linked_list.insert(Node(35))
+    linked_list.delete(25)
 
     linked_list.show()
