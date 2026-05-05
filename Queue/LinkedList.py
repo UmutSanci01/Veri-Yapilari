@@ -64,6 +64,14 @@ class LinkedList:
         #        print(" -> ", end="")
         #print()
 
+    def size(self):
+        return self.size
+
+    def is_empty(self):
+        if self.size == 0:
+            return True
+        return False
+
 if __name__ == "__main__":
     linked_list = LinkedList()
 
