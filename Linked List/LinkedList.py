@@ -5,10 +5,11 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.head : Node = None
+        self.tail : Node = None
         self.size = 0
 
+    # insert new node to the end and increase the size by one 
     def insert(self, node : Node):
         if self.size == 0:
             self.head = node
@@ -48,10 +49,28 @@ class LinkedList:
             n = n.next
             
     def show(self):
+        datas = []
         n : Node = self.head
         while n:
-            print(n.data)
+            datas.append(str(n.data))
             n = n.next
+        
+        print("|", " -> ".join(datas), "|")
+        #n : Node = self.head
+        #while n:
+        #    print(n.data, end="")
+        #    n = n.next
+        #    if n:
+        #        print(" -> ", end="")
+        #print()
+
+    def size(self):
+        return self.size
+
+    def is_empty(self):
+        if self.size == 0:
+            return True
+        return False
 
 if __name__ == "__main__":
     linked_list = LinkedList()
