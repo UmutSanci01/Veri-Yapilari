@@ -1,6 +1,8 @@
 #ifndef STACK_H
 #define STACK_H
 
+// C Encapsulation https://nerdyelectronics.com/encapsulation-information-hiding-c/
+
 struct Stack *stack_init(unsigned int capacity);
 void stack_push(struct Stack *stack, int data);
 int stack_pop(struct Stack *stack);
