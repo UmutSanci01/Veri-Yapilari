@@ -93,6 +93,16 @@ class BinaryTree:
         step(self.root)
         return leaf_nodes
 
+    # Given a Binary Search Tree and a value x, find the ceil value of x .Ceil means the smallest node value greater than or equal to the x.
+    def ceil(self):
+        pass
+
+    # Given a Binary Search Tree and a number x, we have to find the floor of x in the given BST, 
+    # where floor means the greatest value node of the BST which is smaller than or equal to x. 
+    # if x is smaller than the smallest node of BST then return -1.
+    def floor(self):
+        pass
+
     def show(self):
         if self.root is None:
             print("Tree is empty.")
