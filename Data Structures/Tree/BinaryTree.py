@@ -6,8 +6,13 @@ class Node:
         self.payloads : list[Node] = [data] # list of same datas
 
 class BinaryTree:
-    def __init__(self):
+    def __init__(self, iterable=None):
         self.root : Node = None
+
+        if isinstance(iterable, list):
+            for d in iterable:
+                if isinstance(d, int):
+                    self.insert(d)
 
     # Insert − Inserts data in a tree.
     def insert(self, data):
@@ -51,8 +56,6 @@ class BinaryTree:
             elif data < curr.data: # left
                 curr = curr.left # continue to search from left
         return
-
-
 
     # Traversal: Depth-First-Search Traversal and Breadth-First-Search Traversal
     def traversal(self) -> list[int]:
@@ -123,19 +126,20 @@ class BinaryTree:
 
 
 if __name__ == "__main__":
-    tree = BinaryTree()
-    tree.insert(38)
-    tree.insert(11)
-    tree.insert(40)
-    tree.insert(45)
-    tree.insert(22)
-    tree.insert(10)
-    tree.insert(23)
-    tree.insert(22)
+    arr = [38, 11, 40, 45, 22, 10, 23, 22]
+    tree = BinaryTree(arr)
+    # tree.insert(38)
+    # tree.insert(11)
+    # tree.insert(40)
+    # tree.insert(45)
+    # tree.insert(22)
+    # tree.insert(10)
+    # tree.insert(23)
+    # tree.insert(22)
 
-    print(tree.traversal())
-    print(tree.search(10).payloads)
-    print(tree.leafs())
+    # print(tree.traversal())
+    # print(tree.search(10).payloads)
+    # print(tree.leafs())
 
     tree.show()
 
